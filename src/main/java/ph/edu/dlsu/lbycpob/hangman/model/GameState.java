@@ -87,4 +87,8 @@ public class GameState {
         this.guessedLetters = guessedLetters;
     }
 
+    public int getGuessesRemaining() {
+        return guessesRemaining;
+    }
+
 }
