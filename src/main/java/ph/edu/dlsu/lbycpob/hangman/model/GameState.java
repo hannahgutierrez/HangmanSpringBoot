@@ -83,4 +83,8 @@ public class GameState {
         return guessedLetters;
     }
 
+    public void setGuessedLetters(String guessedLetters) {
+        this.guessedLetters = guessedLetters;
+    }
+
 }
