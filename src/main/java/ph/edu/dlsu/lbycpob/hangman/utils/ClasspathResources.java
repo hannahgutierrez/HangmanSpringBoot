@@ -12,5 +12,8 @@ import java.util.List;
 import java.util.Objects;
 
 public class ClasspathResources {
+    private ClasspathResources() {
+        // Utility class - never instantiated.
+    }
 
 }
