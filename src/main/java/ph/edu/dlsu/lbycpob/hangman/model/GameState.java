@@ -123,4 +123,7 @@ public class GameState {
         return won;
     }
 
+    public void setWon(boolean won) {
+        this.won = won;
+    }
 }
