@@ -67,4 +67,8 @@ public class GameState {
         return filename;
     }
 
+    public void setFilename(String filename) {
+        this.filename = filename;
+    }
+
 }
