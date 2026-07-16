@@ -91,4 +91,8 @@ public class GameState {
         return guessesRemaining;
     }
 
+    public void setGuessesRemaining(int guessesRemaining) {
+        this.guessesRemaining = guessesRemaining;
+    }
+
 }
