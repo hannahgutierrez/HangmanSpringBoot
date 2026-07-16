@@ -115,4 +115,8 @@ public class GameState {
         return gameOver;
     }
 
+    public void setGameOver(boolean gameOver) {
+        this.gameOver = gameOver;
+    }
+
 }
