@@ -13,8 +13,10 @@ import java.util.Random;
 @SpringBootApplication
 public class HangmanSpringBootApplication {
 
-    public static void main(String[] args) {
+    /** Shared classpath root – mirrors the original {@code GAME_ASSETS_BASE_PATH}. */
+    private static final String GAME_ASSETS_BASE_PATH = "/game-assets";
+
+    static void main(String[] args) {
         SpringApplication.run(HangmanSpringBootApplication.class, args);
     }
-
 }
