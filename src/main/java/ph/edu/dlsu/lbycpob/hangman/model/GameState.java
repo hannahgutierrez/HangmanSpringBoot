@@ -99,4 +99,8 @@ public class GameState {
         return statistics;
     }
 
+    public void setStatistics(GameStatistics statistics) {
+        this.statistics = statistics;
+    }
+
 }
