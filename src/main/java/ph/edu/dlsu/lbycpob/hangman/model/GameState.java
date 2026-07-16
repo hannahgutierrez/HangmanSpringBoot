@@ -79,4 +79,8 @@ public class GameState {
         this.secretWord = secretWord;
     }
 
+    public String getGuessedLetters() {
+        return guessedLetters;
+    }
+
 }
