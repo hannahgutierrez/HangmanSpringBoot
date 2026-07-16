@@ -59,4 +59,12 @@ public class GameState {
      */
     private boolean won = false;
 
+    // ------------------------------------------------------------------ //
+    //  Getters and setters                                                  //
+    // ------------------------------------------------------------------ //
+
+    public String getFilename() {
+        return filename;
+    }
+
 }
