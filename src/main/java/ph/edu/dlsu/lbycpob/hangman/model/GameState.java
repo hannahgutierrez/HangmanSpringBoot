@@ -103,4 +103,8 @@ public class GameState {
         this.statistics = statistics;
     }
 
+    public String getMessage() {
+        return message;
+    }
+
 }
