@@ -19,4 +19,10 @@ public class HangmanSpringBootApplication {
     static void main(String[] args) {
         SpringApplication.run(HangmanSpringBootApplication.class, args);
     }
+
+    @Bean
+    public Random random() {
+        return new Random();
+    }
+
 }
