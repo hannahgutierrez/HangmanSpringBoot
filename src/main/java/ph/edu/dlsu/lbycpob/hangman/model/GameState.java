@@ -119,4 +119,8 @@ public class GameState {
         this.gameOver = gameOver;
     }
 
+    public boolean isWon() {
+        return won;
+    }
+
 }
