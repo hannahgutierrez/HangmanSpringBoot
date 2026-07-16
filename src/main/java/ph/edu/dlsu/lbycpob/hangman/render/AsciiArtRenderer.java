@@ -1,4 +1,8 @@
 package ph.edu.dlsu.lbycpob.hangman.render;
 
-public class AsciiArtRenderer {
+import javax.swing.*;
+
+public class AsciiArtRenderer implements HangmanRenderer {
+    public AsciiArtRenderer(String s) {
+    }
 }
