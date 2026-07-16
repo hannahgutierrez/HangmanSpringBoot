@@ -95,4 +95,8 @@ public class GameState {
         this.guessesRemaining = guessesRemaining;
     }
 
+    public GameStatistics getStatistics() {
+        return statistics;
+    }
+
 }
