@@ -30,4 +30,8 @@ public class HangmanSpringBootApplication {
         return new ClasspathWordRepository(GAME_ASSETS_BASE_PATH + "/words", random);
     }
 
+    @Bean
+    public HangmanRenderer hangmanRenderer() {
+        return new AsciiArtRenderer(GAME_ASSETS_BASE_PATH + "/hangman-art");
+    }
 }
