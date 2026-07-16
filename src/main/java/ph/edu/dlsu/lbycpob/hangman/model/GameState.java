@@ -110,5 +110,9 @@ public class GameState {
     public void setMessage(String message) {
         this.message = message;
     }
-    
+
+    public boolean isGameOver() {
+        return gameOver;
+    }
+
 }
