@@ -71,4 +71,8 @@ public class GameState {
         this.filename = filename;
     }
 
+    public String getSecretWord() {
+        return secretWord;
+    }
+
 }
