@@ -37,4 +37,26 @@ public class GameState {
      */
     private int guessesRemaining = 8;
 
+    /*
+     * Accumulated statistics across all games in this browser session –
+     * the immutable {@link GameStatistics} record is replaced on each
+     * game completion via {@link GameStatistics#withGame}.
+     */
+    private GameStatistics statistics = GameStatistics.empty();
+
+    /**
+     * The feedback message shown at the top of the play page.
+     */
+    private String message = "";
+
+    /**
+     * {@code true} once the round has been won or lost.
+     */
+    private boolean gameOver = false;
+
+    /**
+     * {@code true} if the player guessed all letters before running out.
+     */
+    private boolean won = false;
+
 }
