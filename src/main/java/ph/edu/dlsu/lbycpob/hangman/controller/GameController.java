@@ -39,3 +39,18 @@ public class GameController {
     // ------------------------------------------------------------------ //
     //  Start a new session                                                  //
     // ------------------------------------------------------------------ //
+    @PostMapping("/game/start")
+    public String startGame(@RequestParam("filename") String filename,
+                            HttpSession session) {
+        GameState state = new GameState();
+        state.setFilename(filename.trim());
+
+        String word = hangmanService.getRandomWord(state.getFilename());
+        state.setSecretWord(word);
+        state.setGuessesRemaining(HangmanService.MAX_GUESSES);
+        state.setMessage("A new word has been chosen. It has "
+                + word.length() + " letter(s). Good luck!");
+
+        session.setAttribute(SESSION_KEY, state);
+        return "redirect:/game/play";
+    }
