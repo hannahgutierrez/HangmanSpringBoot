@@ -132,3 +132,21 @@ public class GameController {
         } else {
             // Incorrect guess
             state.setGuessesRemaining(state.getGuessesRemaining() - 1);
+
+            if (state.getGuessesRemaining() == 0) {
+                // No guesses left – player loses
+                state.setGameOver(true);
+                state.setWon(false);
+                state.setStatistics(state.getStatistics().withGame(false, 0));
+                state.setMessage("You lose. The word was \""
+                        + state.getSecretWord() + "\".");
+            } else {
+                state.setMessage("Incorrect! \"" + letter
+                        + "\" is not in the word. "
+                        + state.getGuessesRemaining() + " guess(es) left.");
+            }
+        }
+
+        session.setAttribute(SESSION_KEY, state);
+        return "redirect:/game/play";
+    }
