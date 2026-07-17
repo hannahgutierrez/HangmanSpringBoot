@@ -99,3 +99,20 @@ public class GameController {
             session.setAttribute(SESSION_KEY, state);
             return "redirect:/game/play";
         }
+
+        char letter = cleaned.charAt(0);
+        if (state.getGuessedLetters().indexOf(letter) >= 0) {
+            state.setMessage("You already guessed \"" + letter
+                    + "\". Choose a different letter.");
+            session.setAttribute(SESSION_KEY, state);
+            return "redirect:/game/play";
+        }
+
+        // --- Record the guess ---
+        state.setGuessedLetters(state.getGuessedLetters() + letter);
+
+        // --- Evaluate correctness ---
+        if (state.getSecretWord().indexOf(letter) >= 0) {
+            // Correct guess
+            String hint = hangmanService.createHint(
+                    state.getSecretWord(), state.getGuessedLetters());
