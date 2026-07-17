@@ -26,3 +26,16 @@ public class GameController {
         this.hangmanService   = hangmanService;
         this.statisticsWriter = statisticsWriter;
     }
+
+    // ------------------------------------------------------------------ //
+    //  Welcome page                                                         //
+    // ------------------------------------------------------------------ //
+
+    @GetMapping("/")
+    public String index() {
+        return "index";
+    }
+
+    // ------------------------------------------------------------------ //
+    //  Start a new session                                                  //
+    // ------------------------------------------------------------------ //
