@@ -199,3 +199,14 @@ public class GameController {
         session.invalidate();
         return "stats";
     }
+
+    // ------------------------------------------------------------------ //
+    //  Abandon session                                                      //
+    // ------------------------------------------------------------------ //
+
+    @GetMapping("/game/reset")
+    public String reset(HttpSession session) {
+        session.invalidate();
+        return "redirect:/";
+    }
+}
