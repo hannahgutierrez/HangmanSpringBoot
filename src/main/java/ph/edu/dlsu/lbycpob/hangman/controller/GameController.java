@@ -150,3 +150,17 @@ public class GameController {
         session.setAttribute(SESSION_KEY, state);
         return "redirect:/game/play";
     }
+
+    // ------------------------------------------------------------------ //
+    //  Play another round (mirrors the "Play again? Y/N" prompt)           //
+    // ------------------------------------------------------------------ //
+    @PostMapping("/game/again")
+    public String playAgain(HttpSession session) {
+        GameState old = (GameState) session.getAttribute(SESSION_KEY);
+        if (old == null) {
+            return "redirect:/";
+        }
+
+        GameState fresh = new GameState();
+        fresh.setFilename(old.getFilename());
+        fresh.setStatistics(old.getStatistics());   // carry over running totals
