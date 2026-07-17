@@ -116,3 +116,19 @@ public class GameController {
             // Correct guess
             String hint = hangmanService.createHint(
                     state.getSecretWord(), state.getGuessedLetters());
+
+            if (!hint.contains("-")) {
+                // All letters revealed – player wins
+                state.setGameOver(true);
+                state.setWon(true);
+                state.setStatistics(
+                        state.getStatistics().withGame(true, state.getGuessesRemaining()));
+                state.setMessage("You win! The word was \""
+                        + state.getSecretWord() + "\". "
+                        + state.getGuessesRemaining() + " guess(es) remaining.");
+            } else {
+                state.setMessage("Correct! \"" + letter + "\" is in the word.");
+            }
+        } else {
+            // Incorrect guess
+            state.setGuessesRemaining(state.getGuessesRemaining() - 1);
