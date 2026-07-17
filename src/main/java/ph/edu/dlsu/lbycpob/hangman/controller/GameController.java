@@ -11,5 +11,18 @@ import ph.edu.dlsu.lbycpob.hangman.service.HangmanService;
 import ph.edu.dlsu.lbycpob.hangman.statistics.GameStatistics;
 import ph.edu.dlsu.lbycpob.hangman.statistics.StatisticsWriter;
 
+/** HTTP controller – the web equivalent of the {@code Hangman.run()} game
+ loop. */
+@Controller
 public class GameController {
-}
+
+    private static final String SESSION_KEY = "gameState";
+
+    private final HangmanService    hangmanService;
+    private final StatisticsWriter  statisticsWriter;
+
+    public GameController(HangmanService hangmanService,
+                          StatisticsWriter statisticsWriter) {
+        this.hangmanService   = hangmanService;
+        this.statisticsWriter = statisticsWriter;
+    }
