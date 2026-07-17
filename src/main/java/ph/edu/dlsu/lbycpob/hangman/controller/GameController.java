@@ -54,3 +54,26 @@ public class GameController {
         session.setAttribute(SESSION_KEY, state);
         return "redirect:/game/play";
     }
+
+    // ------------------------------------------------------------------ //
+    //  Display the current game state                                       //
+    // ------------------------------------------------------------------ //
+    @GetMapping("/game/play")
+    public String play(HttpSession session, Model model) {
+        GameState state = (GameState) session.getAttribute(SESSION_KEY);
+        if (state == null) {
+            // Session expired or player navigated here directly – send them home.
+            return "redirect:/";
+        }
+
+        String hint        = hangmanService.createHint(state.getSecretWord(), state.getGuessedLetters());
+        String displayHint = hangmanService.formatHintForDisplay(hint);
+        String art         = hangmanService.getHangmanArtAsString(state.getGuessesRemaining());
+
+        model.addAttribute("state",       state);
+        model.addAttribute("hint",        hint);
+        model.addAttribute("displayHint", displayHint);
+        model.addAttribute("hangmanArt",  art);
+        model.addAttribute("alphabet",    hangmanService.getAlphabet());
+        return "play";
+    }
