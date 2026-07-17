@@ -40,3 +40,15 @@ public record GameStatistics(int gamesPlayed, int gamesWon, int bestGuessesRemai
         int newBest = (gamesPlayed == 0) ? guessesRemaining : Math.max(bestGuessesRemaining, guessesRemaining);
         return new GameStatistics(gamesPlayed + 1, gamesWon + (won ? 1 : 0), newBest);
     }
+
+    /** Percentage of played games that were won, as a value in [0.0, 100.0]. */
+    public double winPercentage() {
+        return (gamesPlayed == 0) ? 0.0 : (gamesWon * 100.0) / gamesPlayed;
+    }
+
+    /** One-decimal-place formatted win percentage, e.g. {@code "50.0%"}. */
+    public String formattedWinPercentage() {
+        return String.format(Locale.ROOT, "%.2f%%", winPercentage());
+    }
+}
+
