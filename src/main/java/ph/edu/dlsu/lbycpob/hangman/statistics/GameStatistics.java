@@ -23,3 +23,20 @@ public record GameStatistics(int gamesPlayed, int gamesWon, int bestGuessesRemai
                     "bestGuessesRemaining must be >= 0, got " + bestGuessesRemaining);
         }
     }
+
+    /** The statistics for a session in which no games have been played yet. */
+    public static GameStatistics empty() {
+        return new GameStatistics(0, 0, 0);
+    }
+
+    /**
+     * Returns a <em>new</em> {@code GameStatistics} reflecting one more
+     * completed game. This instance is left unchanged.
+     */
+    public GameStatistics withGame(boolean won, int guessesRemaining) {
+        if (guessesRemaining < 0) {
+            throw new IllegalArgumentException("guessesRemaining must be >= 0, got " + guessesRemaining);
+        }
+        int newBest = (gamesPlayed == 0) ? guessesRemaining : Math.max(bestGuessesRemaining, guessesRemaining);
+        return new GameStatistics(gamesPlayed + 1, gamesWon + (won ? 1 : 0), newBest);
+    }
